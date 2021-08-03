@@ -15,9 +15,9 @@ actor User {
         print("My score is \(score)")
     }
     
-    func copyScore(from other: User) {
+    func copyScore(from other: User) async {
         // Steal another user's score
-        score = other.score
+        score = await other.score
     }
     
 }
