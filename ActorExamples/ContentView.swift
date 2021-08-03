@@ -7,6 +7,21 @@
 
 import SwiftUI
 
+actor User {
+    
+    var score = 10
+    
+    func printScore() {
+        print("My score is \(score)")
+    }
+    
+    func copyScore(from other: User) {
+        // Steal another user's score
+        score = other.score
+    }
+    
+}
+
 struct ContentView: View {
     var body: some View {
         Text("Hello, world!")
