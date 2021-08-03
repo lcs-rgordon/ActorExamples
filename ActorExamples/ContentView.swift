@@ -38,7 +38,7 @@ actor BankAccount {
         balance += amount
     }
     
-    func transfer(amount: Decimal, to other: BankAccount) {
+    func transfer(amount: Decimal, to other: BankAccount) async {
         guard balance >= amount else {
             return
         }
