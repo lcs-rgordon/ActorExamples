@@ -39,11 +39,11 @@ actor BankAccount {
     }
     
     func transfer(amount: Decimal, to other: BankAccount) {
-        guard balance > amount else {
+        guard balance >= amount else {
             return
         }
         balance -= amount
-        other.deposit(amount: amount)
+        await other.deposit(amount: amount)
     }
 }
 
