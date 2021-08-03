@@ -7,9 +7,12 @@
 
 import SwiftUI
 
+// Actors have a queue of requests that are executed in the order they are received
+// Priorities for requests can be used to escalate requests
+// Only one piece of logic can access mutable state of an actor at a time (actor isolation)
 actor User {
     
-    var score = 10
+    let score = 10
     
     func printScore() {
         print("My score is \(score)")
@@ -17,7 +20,7 @@ actor User {
     
     func copyScore(from other: User) async {
         // Steal another user's score
-        score = await other.score
+        print(other.score)
     }
     
 }
