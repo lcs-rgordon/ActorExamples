@@ -27,7 +27,7 @@ actor URLCache {
 
 // Example of creating a data race – two tasks could be calling transfer at the same time on the same account
 // NOT GOOD! Transfer $100 from an account with only $100 in it... two transfers could pass the guard statement at the same time, allowing $200 to be transferred from the account that had only $100 in it... we end up with -$100, which should not be possible
-class BankAccount {
+actor BankAccount {
     var balance: Decimal
     
     init(initialBalance: Decimal) {
